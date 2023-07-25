@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Wordle - An Infinite Word Game</title>
+    <link media="screen and (max-device-width: 799px)" href="mobile.css" rel="stylesheet" type="text/css" />
+    <link media="screen and (min-device-width: 800px)" href="style.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="https://www.nytimes.com/games/wordle/images/NYT-Wordle-Icon-32.png"/>
+    <link href="https://www.nytimes.com/games/wordle/images/NYT-Wordle-Icon-32.png" rel="apple-touch-icon">
+  </head>
+  <body>
+    <div class="notificationBox" id="notificationBox">
+      <h1 id="notificationTitle"></h1>
+      <p id="notificationText"></p>
+		</div>
+
+    <script src="words.js"></script>
+    <script src="cookie.js"></script>
+    <script src="script.js"></script>
+    <div id="leaderboard" style="visibility: hidden">
+      <h1>Leaderboard</h1>
+      <p id="peeps"></p>
+    </div>
+
+    <div id="guesses">
+      <p id="winstreak">Score: 0</p>
+      <p id="highscore">Highscore: 0</p>
+      <p id="name" style="visibility: hidden">Username: </p>
+      <input id="nameValue" maxlength="7" onchange="" style="visibility: hidden"></input>
+      <div id="row1">
+				<input id="slot1" class="keythings" type="button" value=" "/>
+        <input id="slot2" class="keythings" type="button" value=" "/>
+        <input id="slot3" class="keythings" type="button" value=" "/>
+        <input id="slot4" class="keythings" type="button" value=" "/>
+        <input id="slot5" class="keythings" type="button" value=" "/>
+      </div>
+      <div id="row2">
+				<input id="slot6" class="keythings" type="button" value=" "/>
+        <input id="slot7" class="keythings" type="button" value=" "/>
+        <input id="slot8" class="keythings" type="button" value=" "/>
+        <input id="slot9" class="keythings" type="button" value=" "/>
+        <input id="slot10" class="keythings" type="button" value=" "/>
+      </div>
+      <div id="row3">
+				<input id="slot11" class="keythings" type="button" value=" "/>
+        <input id="slot12" class="keythings" type="button" value=" "/>
+        <input id="slot13" class="keythings" type="button" value=" "/>
+        <input id="slot14" class="keythings" type="button" value=" "/>
+        <input id="slot15" class="keythings" type="button" value=" "/>
+      </div>
+      <div id="row4">
+				<input id="slot16" class="keythings" type="button" value=" "/>
+        <input id="slot17" class="keythings" type="button" value=" "/>
+        <input id="slot18" class="keythings" type="button" value=" "/>
+        <input id="slot19" class="keythings" type="button" value=" "/>
+        <input id="slot20" class="keythings" type="button" value=" "/>
+      </div>
+      <div id="row5">
+				<input id="slot21" class="keythings" type="button" value=" "/>
+        <input id="slot22" class="keythings" type="button" value=" "/>
+        <input id="slot23" class="keythings" type="button" value=" "/>
+        <input id="slot24" class="keythings" type="button" value=" "/>
+        <input id="slot25" class="keythings" type="button" value=" "/>
+      </div>
+      <div id="row6">
+				<input id="slot26" class="keythings" type="button" value=" "/>
+        <input id="slot27" class="keythings" type="button" value=" "/>
+        <input id="slot28" class="keythings" type="button" value=" "/>
+        <input id="slot29" class="keythings" type="button" value=" "/>
+        <input id="slot30" class="keythings" type="button" value=" "/>
+      </div>
+    </div>
+		<div id="VirtualKey">
+			<div class="rowOne">
+				<input id="q" class="key" type="button" onclick="input('q');" value="Q"/>
+				<input id="w" class="key" type="button" onclick="input('w');" value="W"/>
+				<input id="e" class="key" type="button" onclick="input('e');" value="E"/>
+				<input id="r" class="key" type="button" onclick="input('r');" value="R"/>
+				<input id="t" class="key" type="button" onclick="input('t');" value="T"/>
+				<input id="y" class="key" type="button" onclick="input('y');" value="Y"/>
+				<input id="u" class="key" type="button" onclick="input('u');" value="U"/>
+				<input id="i" class="key" type="button" onclick="input('i');" value="I"/>
+				<input id="o" class="key" type="button" onclick="input('o');" value="O"/>
+				<input id="p" class="key" type="button" onclick="input('p')" value="P"/>
+			</div>
+				<br>
+			<div class="rowTwo">
+				<input id="a" class="key" type="button" onclick="input('a');" value="A"/>
+				<input id="s" class="key" type="button" onclick="input('s');" value="S"/>
+				<input id="d" class="key" type="button" onclick="input('d');" value="D"/>
+				<input id="f" class="key" type="button" onclick="input('f');" value="F"/>
+				<input id="g" class="key" type="button" onclick="input('g');" value="G"/>
+				<input id="h" class="key" type="button" onclick="input('h');" value="H"/>
+				<input id="j" class="key" type="button" onclick="input('j');" value="J"/>
+				<input id="k" class="key" type="button" onclick="input('k');" value="K"/>
+				<input id="l" class="key" type="button" onclick="input('l');" value="L"/>
+			</div>
+				<br>
+			<div class="rowThree">
+				<input class="enterKey" id= "enter" type="button" value="ENTER" onclick="enter();" />
+				<input id="z" class="key" type="button" onclick="input('z');" value="Z"/>
+				<input id="x" class="key" type="button" onclick="input('x');" value="X"/>
+				<input id="c" class="key" type="button" onclick="input('c');" value="C"/>
+				<input id="v" class="key" type="button" onclick="input('v');" value="V"/>
+				<input id="b" class="key" type="button" onclick="input('b');" value="B"/>
+				<input id="n" class="key" type="button" onclick="input('n');" value="N"/>
+				<input id="m" class="key" type="button" onclick="input('m');" value="M"/>
+				<input id= "del" class="key delKey" type="button" value="⌫" onclick="del();" />
+			</div>
+		</div>
+  </body>
+</html>
